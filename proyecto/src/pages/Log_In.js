@@ -11,7 +11,7 @@ class Log_In extends React.Component {
                     <Link to="/Trainning/Sign_Up" >Sign up</Link>
                 </form>
                 <div className="menu">
-                    <button class="btn btn-primary btn-lg active">Log in with Facebook</button>
+                    <button class="btn btn-primary btn-lg active btn-block">Log in with Facebook</button>
                     <td id="barra"></td>
                    <label class="label label-default">Log in with your email address</label>
                     <input className="form-control"type="email" placeholder="Email" />

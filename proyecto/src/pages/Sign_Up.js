@@ -17,7 +17,7 @@ class Sign_Up extends React.Component {
                     <input className="form-control" type="email" placeholder="Email"/>
                      <input className="form-control" type="password" placeholder="Password"   />
                      <input className="form-control" type="text" placeholder="Name"  />
-                     <th><button type="button" class="btn btn-success" id="up">Sing up</button></th>
+                     <th><button type="button" class="btn btn-success" id="up">Sign up</button></th>
                      <h1 className="last">Already have an account? <Link to="/Trainning/Log_In" id="sign">Log in</Link></h1>
                 </div>
             </div>
