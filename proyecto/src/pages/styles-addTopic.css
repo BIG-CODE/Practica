@@ -1,0 +1,167 @@
+#nuevoTopic {
+    display: grid;
+    grid-template-columns: 300px;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+.s {
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 120px;
+    background-color: rgb(0, 102, 255);
+    color: floralwhite;
+}
+
+#entrada {
+    margin-left: 150px;
+}
+
+#N {
+    margin-top: -10px;
+    margin-left: 150px;
+}
+
+.control {
+    margin-top: 10px;
+    margin-left: 150px;
+    width: 100%;
+}
+
+.adder {
+    width: 17%;
+    height: 40px;
+    margin-left: 120px;
+    margin-top: 10px;
+}
+
+#editarTopic {
+    display: grid;
+    grid-template-columns: 300px;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+.controler {
+    margin-top: 10px;
+    margin-left: 150px;
+    width: 100%;
+}
+
+.list {
+    margin-left: 150px;
+    color: rgb(0, 82, 121);
+}
+
+.guardar {
+    width: 10px;
+    height: 43px;
+    margin-top: 10px;
+    margin-left: 148px;
+    font-size: 24px;
+    
+}
+
+.description {
+    margin-top: 10px;
+    margin-left: 150px;
+    width: 136%;
+}
+.url {
+    margin-top: 30px;
+    margin-left: 150px;
+    width: 136%;
+}
+
+.addres {
+    display: grid;
+    margin-top: 60px;
+    margin-left: 145px;
+}
+#add-new{
+    font-size: 25px;
+}
+
+.btn-back {
+    margin-left: 215px;
+    margin-top: -30px;
+    color: rgb(0, 82, 121);
+}
+
+.dropdown {
+    margin-left: 150px;
+    margin-top: -50px;
+}
+
+
+
+.dropbtn {
+    color: rgb(99, 28, 28);
+    padding: 16px;
+    font-size: 16px;
+    border: rgb(161, 161, 161);
+    cursor: pointer;
+    width: 363%;
+    /*border: groove;*/
+}
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    margin-top: 30px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-left: 380px;
+}
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: grid;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {
+    background-color: #ffffff;
+    border: darkgray;
+}
+label {
+    margin-left: 10px;
+    font-size: 45px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.f{
+    width: 60px;
+    margin-left: 150px;
+    margin-top: 15px;
+    background-color: rgb(0, 102, 255);
+    color: floralwhite;
+}

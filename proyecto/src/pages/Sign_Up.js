@@ -10,15 +10,15 @@ class Sign_Up extends React.Component {
                     <Link to="/Trainning/Log_In" >Log in</Link>
                     <Link to="/Trainning/Sign_Up" >Sign up</Link>
                 </form>
-                <div className="container main">
-                    <button class="btn btn-primary btn-lg active" id="1">Sign in with Facebook</button>
+                <div>
+                    <button class="btn  face btn-primary btn-lg active">Sign in with Facebook</button>
                     <td id="barra"></td>
-                   <h2><label class="label label-default" id="texto">Log in with your email address</label></h2>
-                    <input className="form-control" type="email" placeholder="Email"/>
-                     <input className="form-control" type="password" placeholder="Password"   />
-                     <input className="form-control" type="text" placeholder="Name"  />
-                     <th><button type="button" class="btn btn-success" id="up">Sing up</button></th>
-                     <h1 className="last">Already have an account? <Link to="/Trainning/Log_In" id="sign">Log in</Link></h1>
+                    <ul><label class="label-default" id="texto">Sign up with your email address</label></ul>
+                    <input className="form-control txt" type="email" placeholder="Email" />
+                    <input className="form-control txt" type="password" placeholder="Password" />
+                    <input className="form-control txt" type="text" placeholder="Name" />
+                    <th class="sinup-verde"><button type="button" class="btn boton btn-success" id="up">Sign up</button></th>
+                    <h1 className="last">Already have an account? <Link to="/Trainning/Log_In" id="sign">Log in</Link></h1>
                 </div>
             </div>
         );

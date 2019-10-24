@@ -14,62 +14,48 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <form class="table table-bordered" >
+                <form class="table table-bordered" id="tabla">
                     <Link to="/Trainning/Top" >Avantica Trainning</Link>
                     <Link to="/Trainning/Log_In" >Log in</Link>
                     <Link to="/Trainning/Sign_Up" >Sign up</Link>
                 </form>
                 <div className='container'>
                     <p> Top ten topics </p>
-
                     <table className="table table-striped">
                         <thead>
-                            <tr>
-                                <th> Topic </th>
-                                <th>Resources</th>
-                            </tr>
+                            <tr> <th id="fila"> Topic </th>
+                                <th id="fila">Resources</th></tr> 
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th>Spring boot</th>
-                                <th>5</th>
-                            </tr>
-                            <tr>
-                                <th>Concurrency</th>
-                                <th>4</th>
-                            </tr>
-                            <tr>
-                                <th>Node JS</th>
-                                <th>2</th>
-                            </tr>
-                            <tr>
-                                <th>REST</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>NoSQL</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>Angular</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>Testing</th>
-                                <th>0</th>
-                            </tr>
-                            <tr>
-                                <th>ORM</th>
-                                <th>0</th>
-                            </tr>
-                            <tr>
-                                <th>OAUTH</th>
-                                <th>0</th>
-                            </tr>
-                            <tr>
-                                <th>SOAP</th>
-                                <th>0</th>
-                            </tr>
+                        <tbody>                           
+                               <tr> <th id="fila">Spring boot</th>
+                                <th>5</th></tr>
+                                                        
+                               <tr> <th id="fila">Concurrency</th>
+                                <th id="fila">4</th></tr>
+                                                       
+                                <tr><th id="fila">Node JS</th>
+                                <th>2</th></tr>
+                                                       
+                                <tr><th id="fila">REST</th>
+                                <th id="fila">1</th></tr>
+                                                       
+                                <tr><th id="fila">NoSQL</th>
+                                <th id="fila">1</th></tr>
+                                                      
+                                 <tr><th id="fila">Angular</th>
+                                <th id="fila">1</th></tr>
+                                                       
+                                <tr><th id="fila">Testing</th>
+                                <th id="fila">0</th></tr>
+                                                       
+                                <tr><th id="fila">ORM</th>
+                                <th id="fila">0</th></tr >
+                                               
+                                <tr><th id="fila">OAUTH</th>
+                                <th id="fila">0</th></tr> 
+
+                                <tr><th id="fila">SOAP</th>
+                                <th id="fila">0</th></tr>                    
                         </tbody>
                     </table>
                 </div>

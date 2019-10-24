@@ -5,23 +5,19 @@ form{
    grid-template-columns: 1700px 100px 100px 100px;
    height: 60px;
    padding: 10px;
-   
 }
-
 tbody{
 background-color: whitesmoke;
 border: rgb(129, 129, 129) 1px solid;
 }
-
-th{
+#fila{
    border: rgb(129, 129, 129) 1px solid;
    align-content: center;
    align-items: center;
 }
-table{
-   width: 40%;
+.table-striped{
+   width: 900px;
    height: 500px;
-   margin: auto;
 }
 p{
    font-size: 50px;
@@ -30,7 +26,6 @@ p{
 a{
   margin-top: 10px;
   color: rgb(65, 65, 65);
- 
 }
 a:link{
    text-decoration: none;
