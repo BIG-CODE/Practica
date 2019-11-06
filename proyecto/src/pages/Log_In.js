@@ -1,24 +1,35 @@
 import React from 'react';
-import "./styles_Log_In.css";
+import "./Log_In.css";
 import { Link } from 'react-router-dom'
+import FacebookLogin from 'react-facebook-login';
 class Log_In extends React.Component {
+
+    componentDidMount() {
+     
+    }
+    handleLogin = responseFacebook => {
+        console.log(responseFacebook);
+    }
     render() {
         return (
-            <div className="cajita_Log">
-                <form class="table table-bordered" id="in">
-                    <Link to="/Trainning/Top" >Avantica Trainning</Link>
-                    <Link to="/Trainning/Log_In" >Log in</Link>
-                    <Link to="/Trainning/Sign_Up" >Sign up</Link>
-                </form>
+            <div className="container">
+                <div className="table table-bordered" id="forma">
+                    <Link to="/Trainning/Top" id="avantica" >Avantica Trainning</Link>
+                    <Link className="top-log"  to="/Trainning/Log_In" >Log in</Link>
+                    <Link id="logout"  to="/Trainning/Sign_Up" >Sign up</Link>
+                </div>
                 <div className="menu">
-                    <button  class=" face btn btn-primary btn-lg active">Log in with Facebook</button>
-                    <td id="barra"></td>
-                   <label class="label label-default">Log in with your email address</label>
-                    <input className="form-control txt"type="email" placeholder="Email" />
-                     <input className="form-control txt" type="password" placeholder="Password" />
-                     <td class="tipo"><button type="button" class="btn login btn-success">Log in</button></td>
-                     <h1>Don´t have an account? <Link to="/Trainning/Sign_Up" id="log">Sign up</Link></h1>
-
+                   <button className="btn  face "  ><FacebookLogin
+                        appId="698264744014242"
+                        fields="name,email,picture"
+                        callback={this.handleLogin}                                                          
+                    /></button> 
+                    <div id="barra"></div>
+                    <label className="label label-default">Log in with your email address</label>
+                    <input className="form-control txt" type="email" placeholder="Email" />
+                    <input className="form-control txt" type="password" placeholder="Password" />
+                    <button onClick="" type="button" className="btn login btn-success">Log in</button>
+                    <h1>Don´t have an account? </h1><Link to="/Trainning/Sign_Up" id="log">Sign up</Link>
                 </div>
             </div>
         );

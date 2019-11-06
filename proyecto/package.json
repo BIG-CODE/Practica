@@ -4,9 +4,13 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "jsonwebtoken": "^8.5.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-facebook-login": "^4.1.1",
+    "react-responsive": "^8.0.1",
+    "react-scripts": "3.2.0",
+    "react-super-responsive-table": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,0 +1,68 @@
+.fb-login-button {
+  border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 80px;
+  width: 500px;
+}
+
+a {
+  margin-left: 30px;
+  margin-top: 10px;
+  color: rgb(94, 94, 94);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.label-default {
+  margin-left: 10px;
+  font-size: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.menu {
+  justify-content: center;
+  width: 30%;
+}
+
+h1 {
+  font-size: 20px;
+  width: 55%;
+}
+
+#log {
+  font-size: 20px;
+  margin-left: 220px;
+  margin-top: -35px;
+  color: rgb(5, 70, 168);
+  width: 20%;
+
+}
+
+#barra {
+  width: 100%;
+  color: rgb(201, 201, 201);
+}
+
+.login {
+  margin-top: 30px;
+  width: 25%;
+ 
+}
+
+.txt {
+  width: 400px;
+}
+
+.face {
+  background-color: #4c69ba;
+  height: 78px;
+}
+@media all and (max-width: 600px){
+  div{
+      width:100%;
+      height:auto;
+      margin-left:10px;
+  }
+}
