@@ -1,6 +1,6 @@
 import React from 'react';
-import AddTopic from "./AddTopic";
-import EditTopic from './EditTopic';
+import AddTopic from "./Insert_Topics";
+import EditTopic from './Edit_Topics';
 
 function TopicSelector(props) {
 

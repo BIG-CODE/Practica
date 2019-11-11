@@ -43,7 +43,7 @@ class EditTopic extends React.Component {
                     required type="text" title="please fill out this field"
                     className="form-control control color" placeholder="Name" name="name" />
                 <button onClick={this.handleClick} className="save btn btn-primary">Save</button>
-                <Link className="list" to="/Trainning/topics">Back to list</Link>
+               
             </div>
         );
     }

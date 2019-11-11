@@ -1,43 +1,4 @@
-#forma {
-    display: grid;
-    width: 1920px;
-    height: 60px;
-    margin-left: -15px;
-    background-color: whitesmoke;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /*font-size: 20px;*/
-}
 
-#avantica {
-    margin-left: 30px;
-    margin-top: 14px;
-    font-size: 20px;
-    width: 190px;
-   
-}
-
-#avantica::selection {
-    color: black;
-}
-
-#topics {
-    margin-top: -31px;
-    margin-left: 250px;
-    width: 40px;
-}
-
-#resources {
-    margin-top: -34px;
-    margin-left: 330px;
-    width: 50px;
-}
-
-#logout {
-    margin-top: -40px;
-    margin-left: 1820px;
-    font-size: 20px;
-    width: 80px;
-}
 
 td {
     border: rgb(129, 129, 129) 1px solid;

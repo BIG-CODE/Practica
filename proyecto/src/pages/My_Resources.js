@@ -1,33 +1,33 @@
 import React from 'react';
-import './AddTopic.css';
-import { Link } from 'react-router-dom'
+import '../styles/My_Resources.css';
 import ResourcesSelector from "../components/ResourcesSelector";
-
+import NavBar from "../components/NavBar"
+import 'bootstrap/dist/css/bootstrap.min.css';
 class Resource extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            addResouce: [
 
+            ],
             description: "",
             url: "",
             topic: {
                 id_Topics: 0
             },
-            addResouce: [
-
-            ]
         }
     }
     componentDidMount() {
         this.GetResource()
+        this.handleDelete()
     }
     handleClick = event => {
         const body = {
             description: this.state.description,
             url: this.state.url,
             topic: {
-                id_Topics: this.state.id_Topics
+                id_topics: this.state.id_topics
             }
         }
 
@@ -66,18 +66,55 @@ class Resource extends React.Component {
                 })
             })
             .catch(error => console.error('Error:', error))
+
+    }
+    handleUpdate = event => {
+        const body = {
+            description: this.state.description,
+            url: this.state.url,
+            topic: {
+                id_Topics: this.state.id_Topics
+            }
+        }
+
+        fetch("http://localhost:8080/resource", {
+            method: 'PUT',
+            body: JSON.stringify(body),
+            mode: "cors",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
 
     }
+    handleDelete = (id) => {
+        const body = {
+            description: this.state.description,
+            url: this.state.url,
+            topic: {
+                id_Topics: this.state.id_Topics
+            }
+        }
+
+        fetch("http://localhost:8080/resource/"+id, {
+            method: 'DELETE',
+            mode: "cors",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+    }
+
     render() {
         return (
-            <div className="res">
-                <div className="table table-bordered" id="formas" >
-                    <Link id="avantica" to="/Trainning/Top"  >Avantica Trainning</Link>
-                    <Link id="topics" to="/Trainning/topics" >Topics</Link>
-                    <Link to="/Trainning/resources" id="resources">Resources</Link>
-                    <Link to="/Trainning/Top" id="logout" >Log out</Link>
-                </div>
+            <div className="box-resources">
+                <NavBar />
                 <ResourcesSelector GetResource={this.GetResource} selectorState={"add"} />
                 <table className="table update">
                     <thead className="thead-dark">
@@ -90,7 +127,7 @@ class Resource extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <Tabla data={this.state.addResouce} />
+                        <Tabla data={this.state.addResouce} handleDelete={this.handleDelete} />
                     </tbody>
                 </table>
             </div>
@@ -100,8 +137,6 @@ class Resource extends React.Component {
 function Tabla(props) {
     let data = props.data
     let contenido = data.map((item, index) => {
-        console.log(item)
-
         return (
             <tr key={index}>
                 <th>{item.id}</th>
@@ -111,13 +146,13 @@ function Tabla(props) {
                 <th>
                     <div>
                         <button className="btn btn-info">Edit</button>
-                        <button className="btn btn-danger">Delete</button>
+                        <button onClick={props.handleDelete(item.id)} className="btn btn-danger">Delete</button>
                     </div>
                 </th>
             </tr>
         );
     })
-    console.log(props.data)
+
     return contenido;
 }
 

@@ -1,14 +1,15 @@
 import React from 'react';
-import AddResources from "./AddResources";
-import EditResources from './EditResources';
+import AddResources from "./Insert_Resources";
+import EditResources from './Edit_Resources';
 
 
 function ResourcesSelector(props) {
 
-    if (props.selectorState === "edit") {
+    if (props.selectorState === "add") {
 
-        return <EditResources />
+        return <AddResources />
     }
+
     return (
         <AddResources GetResource={props.GetResource}>
 
@@ -19,4 +20,5 @@ function ResourcesSelector(props) {
 
 
 }
+
 export default ResourcesSelector;

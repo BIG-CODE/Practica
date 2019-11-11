@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-class EditResources extends React.Component {
+import Selector from "./Selector"
+import 'bootstrap/dist/css/bootstrap.min.css';
+class AddResources extends React.Component {
     constructor(props) {
         super(props)
 
@@ -9,20 +10,25 @@ class EditResources extends React.Component {
             description: "",
             url: "",
             topic: {
-                id_Topics: 0
-            }
+                id_Topics: 0,
+            },
+            addId: [
+
+            ]
+
         }
     }
-    handleClick = event => {
+
+    handleClick = async (event) => {
         const body = {
             description: this.state.description,
             url: this.state.url,
             topic: {
                 id_Topics: this.state.id_Topics
-            }
+            },
         }
 
-        fetch("http://localhost:8080/resource", {
+        await fetch("http://localhost:8080/resource", {
             method: 'POST',
             body: JSON.stringify(body),
             mode: "cors",
@@ -33,21 +39,22 @@ class EditResources extends React.Component {
         }).then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
-
     }
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value,
         });
-
-    };
-
+        console.log(this.state.id_Topics)
+    }
+    imprimir = () => {
+        console.log(this.state)
+    }
     render() {
         return (
-            <div className="res">
-                <div className="addres"><label id="add-new">Edit new resource</label> </div>
+            <div className="box-resources">
+                <div className="addres"><label id="add-new">Add new resource</label> </div>
 
-                <form className="form-new">
+                <form className="form-resources">
                     <input value={this.state.description}
                         onChange={this.handleChange}
                         required type="text" title="please fill out this field"
@@ -59,21 +66,14 @@ class EditResources extends React.Component {
                         required type="text" title="please fill out this field"
                         className="form-control url color" type="text " name="url" placeholder="Url"
                     />
-                    <select value={this.state.id_Topics}
-                        onChange={this.handleChange}
-                        required type="text" title="please fill out this field" name="id_Topics" className="form-control description dropdown color ">
-                        <option  >5</option>
-                        <option  >1</option>
-                        <option  >2</option>
-                    </select>
+                    <Selector value={this.state.topic.id_Topics}
+                        onChange={(event) => { this.setId(event.target.value, "id_Topics") }} />
                 </form>
-
-                <button onClick={this.handleClick}
-                    type="button" className="f btn btn-primary">Save</button>
-                <Link to="/Trainning/resources" className="btn-back">Back to list</Link>
+                <button onClick={this.imprimir}
+                    type="button" className="save-resources btn btn-primary">Save</button>
+               
             </div>
         );
     }
 }
-
-export default EditResources;
+export default AddResources;

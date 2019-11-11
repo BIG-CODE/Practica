@@ -1,15 +1,15 @@
 import React from 'react';
-import AddResources from "./AddResources";
-import EditResources from './EditResources';
+import Selector from "./Selector";
+import EditResources from './Edit_Resources';
 
 function SelectorId(props) {
 
-    if (props.selectorState === "add") {
+    if (props.selectorState === "edit") {
 
         return <EditResources />
     }
     return (
-        <AddResources GetTopicId={props.GetTopicId}> </AddResources>
+        <Selector GetTopicId={props.GetTopicId()}> </Selector>
     );
 }
 export default SelectorId;

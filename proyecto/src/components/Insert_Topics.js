@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 class AddTopic extends React.Component {
     constructor(props) {
         super(props)
@@ -30,21 +30,20 @@ class AddTopic extends React.Component {
         this.setState({
             [event.target.name]: event.target.value,
         });
-
     };
     render() {
         return (
             <div>
                 <div>
-                    <p id="nuevoTopic">Add Topic</p>
-                    <div id="nom">Name:</div>
+                    <p id="add-topic">Add Topic</p>
+                    <p id="name">Name:</p>
                 </div>
                 <input value={this.state.name}
                     onChange={this.handleChange}
                     required type="text" title="please fill out this field"
                     className="form-control control color" placeholder="Name" name="name" />
-                <button onClick={this.handleClick} className="save btn btn-primary">Save</button>
-                <Link className="list" to="/Trainning/topics">Back to list</Link>
+                <button onClick={this.handleClick} className=" btn btn-primary" id="save-btn">Save</button>
+               
             </div>
         );
     }

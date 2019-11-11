@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sign_Up.css';
+import '../styles/Sign_Up.css';
 import { Link } from 'react-router-dom'
 class Sign_Up extends React.Component {
     constructor(props) {
