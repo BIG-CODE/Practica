@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Home_Page.css';
-import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBarSesion from "../components/NavBarSesion"
 class Home extends React.Component {
 
     constructor(props) {
@@ -66,15 +66,11 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <div className="container">
-              <div className="table table-bordered" id="forma" >
-                <Link id="avantica" to="/Trainning/Top"  >Avantica Trainning</Link>
-                <Link className="top-log" to="/Trainning/Log_In" >Log in</Link>
-                <Link id="logout" to="/Trainning/Sign_Up" >Sign up</Link>
-            </div>
-                <div className='container'>
-                    <p id="top-ten"> Top ten topics </p>
-                    <table className="table table-striped">
+            <div>
+             <NavBarSesion />
+                <div className="container">
+                    <h1 id="top-ten"> Top ten topics </h1>
+                    <table className="table table-striped table-hover">
                         <thead>
                             <tr> <th id="fila"> Topic </th>
                                 <th>Resources</th>

@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/Sign_Up.css';
 import { Link } from 'react-router-dom'
+import NavBarSesion from "../components/NavBarSesion"
+import 'bootstrap/dist/css/bootstrap.min.css';
 class Sign_Up extends React.Component {
     constructor(props) {
         super(props)
@@ -42,34 +44,31 @@ class Sign_Up extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="table table-bordered" id="forma" >
-                    <Link to="/Trainning/Top" id="avantica" >Avantica Trainning</Link>
-                    <Link className="top-log" to="/Trainning/Log_In" >Log in</Link>
-                    <Link id="logout" to="/Trainning/Sign_Up" >Sign up</Link>
-                </div>
-                <div className="menu">
+            <div className="menu-sign">
+                <NavBarSesion />
+                <div className="menu-body">
                     <button onClick="" className="btn  face btn-primary btn-lg active">Sign in with Facebook</button>
                     <div id="barra"></div>
-                    <ul><label className="label-default" id="texto">Sign up with your email address</label></ul>
-                    <div className="textbox">
+                    <label className="label-default" id="texto">Sign up with your email address</label>
+                    <form className="caja-sing">
+
                         <input value={this.state.email}
                             onChange={this.handleChange}
-                            className="form-control txt"
+                            className="form-control txt-s"
                             type="email" placeholder="Email"
                             name="email" />
 
                         <input value={this.state.password}
                             onChange={this.handleChange}
-                            className="form-control txt"
+                            className="form-control txt-s"
                             type="password" placeholder="Password"
                             name="password" />
 
                         <input value={this.state.name}
                             onChange={this.handleChange}
-                            className="form-control txt"
+                            className="form-control txt-s"
                             type="text" placeholder="Name"
-                            name="name" /></div>
+                            name="name" /></form>
 
 
                     <button onClick={this.handleClick}
@@ -77,10 +76,10 @@ class Sign_Up extends React.Component {
                         className="btn boton btn-success"
                         id="up">Sign up</button>
 
-                    <h1
-                        className="last">Already have an account?
-                     <Link to="/Trainning/Log_In" id="sign">Log in</Link>
-                    </h1>
+                    <h5
+                        >Already have an account?
+                     <Link to="/Trainning/Log_In" id="sign"> Log in</Link>
+                    </h5>
                 </div>
             </div>
         );

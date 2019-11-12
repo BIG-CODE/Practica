@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-class AddTopic extends React.Component {
+class Insert_Topic extends React.Component {
     constructor(props) {
         super(props)
 
@@ -35,19 +35,19 @@ class AddTopic extends React.Component {
         return (
             <div>
                 <div>
-                    <p id="add-topic">Add Topic</p>
-                    <p id="name">Name:</p>
+                    <h1 id="add-topic">Add Topic</h1>
+                    <h5 id="name">Name:</h5>
                 </div>
                 <input value={this.state.name}
                     onChange={this.handleChange}
                     required type="text" title="please fill out this field"
-                    className="form-control control color" placeholder="Name" name="name" />
+                    className="form-control control color" placeholder="Topic Name" name="name" />
                 <button onClick={this.handleClick} className=" btn btn-primary" id="save-btn">Save</button>
-               
+
             </div>
         );
     }
 }
 
 
-export default AddTopic;
+export default Insert_Topic;

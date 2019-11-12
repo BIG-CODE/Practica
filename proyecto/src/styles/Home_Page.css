@@ -1,28 +1,8 @@
-#formas {
-   display: grid;
-   width: 1921px;
-   height: 60px;
-   margin-left: -1px;
-   background-color: whitesmoke;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+.home-topics{
+  justify-content: center;
+  
 }
-
-.top-log {
-   margin-left: 90%;
-   font-size: 20px;
-   margin-top: -37px;
-   width: 70px;
-}
-
-.top-sign {
-   margin-left: 1780px;
-   font-size: 20px;
-   margin-top: -35px;
-   width: 80px;
-}
-
-
 #top-ten{
-   font-size: 50px;
-   margin-right: 750px;
+   margin-top: 8%; 
 }
+

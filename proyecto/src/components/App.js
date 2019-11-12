@@ -14,9 +14,8 @@ function App() {
                 <Route exact path={'/Trainning/Top'} component={Home} />
                 <Route exact path={'/Trainning/Sign_Up'} component={Sign_Up} />
                 <Route exact path={'/Trainning/Log_In'} component={Log_In} />
-                <Route exact path={'/Trainning/newtopics'} component={Topic} />
-                <Route exact path={'/Trainning/addresources'} component={Resource} />
-                <Route exact path={'/Trainning/editTopic'} component={AddTopic} />
+                <Route exact path={'/Trainning/My_Topics'} component={Topic} />
+                <Route exact path={'/Trainning/My_Resources'} component={Resource} />
             </Switch>
         </BrowserRouter>
     );

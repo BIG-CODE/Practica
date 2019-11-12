@@ -26,27 +26,29 @@ class Log_In extends React.Component {
 
         } else {
             fbContent = (
-                <div className="container">
+                <div className="menu-login">
                     <NavBarSesion />
-                    <div className="menu">
-                        <button callback={this.handleLogin} className="btn face"><FacebookLogin
+                    <div className="menu-space">
+                        <button className="btn face"><FacebookLogin
                             appId="698264744014242"
                             fields="name,email,picture"
+                            callback={this.handleLogin}
                         /></button>
-                        <div id="barra"></div>
-                        <label className="label label-default">Log in with your email address</label>
-                        <div id="caja-login">
-                            <input className="form-control txt"
+                        <div id="barra-gris"></div>
+                        <label className="label label-default text-login">Log in with your email address</label>
+                        <div className="caja-login">
+                            <input className="form-control input-txt"
                                 type="email" placeholder="Email" />
 
-                            <input className="form-control txt"
+                            <input className="form-control input-txt"
                                 type="password" placeholder="Password" />
 
-                            <button onClick="" type="button"
-                                className="btn login btn-success">Log in</button>
 
-                            <h1 id="dont-account">Don´t have an account? </h1><Link to="/Trainning/Sign_Up" id="log">Sign up</Link>
                         </div>
+                        <button onClick="" type="button"
+                            className="btn btn-login btn-success">Log in</button>
+
+                        <h5>Don´t have an account?<Link to="/Trainning/Sign_Up" id="log"> Sign up</Link> </h5>
 
                     </div>
                 </div>

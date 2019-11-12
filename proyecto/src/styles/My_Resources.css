@@ -1,80 +1,41 @@
 .description {
-    margin-top: 10px;
-    margin-left: 150px;
-    width: 140%;
-    border: 1px solid rgba(207, 207, 207, 0.8);
-    /* border-left:5px solid #AB4846 ;*/
+    margin-left: 7%;
+    width: 20%;
 }
-.addres {
-    display: grid;
-    margin-top: 60px;
-    margin-left: 145px;
-    width: 90%;
+
+.url {
+    margin-top: 30px;
+    margin-left: 7%;
+    width: 20%;
 }
+
 #add-new {
-    font-size: 40px;
+    margin-top: 5%;
+    margin-left: 7%;
 }
+
 .update {
     width: 55%;
     margin-left: 800px;
     margin-top: -350px;
     font-size: 18px;
 }
-#forma {
-    display: grid;
-    width: 1920px;
-    height: 60px;
-    margin-left: -15px;
-    background-color: whitesmoke;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
-#avantica {
-    margin-left: 30px;
-    margin-top: 14px;
-    font-size: 20px;
-    width: 190px;
-}
-
-#avantica::selection {
-    color: black;
-}
-
-#topics {
-    margin-top: -31px;
-    margin-left: 250px;
-    width: 40px;
-}
-
-#resources {
-    margin-top: -34px;
-    margin-left: 330px;
-    width: 50px;
-}
-
-#logout {
-    margin-top: -40px;
-    margin-left: 1820px;
-    font-size: 20px;
-    width: 80px;
-}
 .save-resources {
-    width: 20%;
-    margin-left: 150px;
-    margin-top: 15px;
-    background-color: rgb(0, 75, 187);
+    width: 5%;
+    margin-left: 7%;
+    margin-top: 1%;
+    background-color: rgb(10, 94, 219);
     color: floralwhite;
 }
-.url {
-    margin-top: 30px;
-    margin-left: 150px;
-    width: 140%;
-}
-.table tbody tr th div{
+
+.table tbody tr th div {
     display: grid;
-    grid-template-columns: repeat(2,auto);
+    grid-template-columns: repeat(2, auto);
     width: 100%;
     justify-content: center;
     gap: 10px;
-    }
-    
+}
+.form-resources{
+    margin-top: 3%;
+}

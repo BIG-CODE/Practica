@@ -7,11 +7,20 @@ class NavBarSesion extends React.Component {
     }
     render() {
         return (
-            <div className="table table-bordered" id="forma">
-                <Link to="/Trainning/Top" id="avantica" >Avantica Trainning</Link>
-                <Link className="top-log" to="/Trainning/Log_In" >Log in</Link>
-                <Link id="logout" to="/Trainning/Sign_Up" >Sign up</Link>
-            </div>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light form-control">
+
+                <ul className="navbar-nav avantica mr-auto">
+                    <Link className="nav-link " to="/Trainning/Top">Avantica training</Link>
+                </ul>
+
+                <ul className="navbar-nav log-in mr-auto">
+                    <Link className="nav-link " to="/Trainning/Log_In">Log In</Link>
+                </ul>
+
+                <ul className="navbar-nav sign-up  mr-auto">
+                    <Link className="nav-link " to="/Trainning/Sign_Up">Sign Up</Link>
+                </ul>
+            </nav>
         );
     }
 }

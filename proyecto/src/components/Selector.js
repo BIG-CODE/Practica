@@ -52,7 +52,7 @@ class Selector extends React.Component {
                 value={this.state.topic.id_Topics}
                 onChange={(event) => { this.setId(event.target.value, "id_Topics") }}
                 id="inputState"
-                className="form-control url">
+                className="form-control url color">
                 {
                     this.state.addId.map((item, index) => {
                         return <option key={index} value={this.state.topic.id_Topics}>{item.id_Topics}</option>

@@ -52,7 +52,8 @@ class AddResources extends React.Component {
     render() {
         return (
             <div className="box-resources">
-                <div className="addres"><label id="add-new">Add new resource</label> </div>
+
+                <h1 id="add-new">Add new resource</h1> 
 
                 <form className="form-resources">
                     <input value={this.state.description}
