@@ -1,27 +1,62 @@
 import React from 'react';
-import "./styles_Log_In.css";
+import "../styles/Log_In.css";
 import { Link } from 'react-router-dom'
+import FacebookLogin from 'react-facebook-login';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Topic from "./My_Topics";
+import NavBarSesion from "../components/NavBarSesion"
 class Log_In extends React.Component {
+    state = {
+        isLoggedIn: false
+    }
+    handleLogin = responseFacebook => {
+        //console.log(responseFacebook);
+        this.setState({
+            isLoggedIn: true
+        });
+    };
+    componetClicked = () => console.log("clicked");
     render() {
-        return (
-            <div className="cajita_Log">
-                <form class="table table-bordered" >
-                    <Link to="/Trainning/Top" >Avantica Trainning</Link>
-                    <Link to="/Trainning/Log_In" >Log in</Link>
-                    <Link to="/Trainning/Sign_Up" >Sign up</Link>
-                </form>
-                <div className="menu">
-                    <button class="btn btn-primary btn-lg active btn-block">Log in with Facebook</button>
-                    <td id="barra"></td>
-                   <label class="label label-default">Log in with your email address</label>
-                    <input className="form-control"type="email" placeholder="Email" />
-                     <input className="form-control" type="password" placeholder="Password" />
-                     <td><button type="button" class="btn btn-success">Log in</button></td>
-                     <h1>Don´t have an account? <Link to="/Trainning/Sign_Up" id="log">Sign up</Link></h1>
+        let fbContent;
+        if (this.state.isLoggedIn) {
 
+            fbContent = (
+                <Topic />
+            )
+
+        } else {
+            fbContent = (
+                <div className="menu-login">
+                    <NavBarSesion />
+                    <div className="menu-space">
+                        <button className="btn face"><FacebookLogin
+                            appId="698264744014242"
+                            fields="name,email,picture"
+                            callback={this.handleLogin}
+                        /></button>
+                        <div id="barra-gris"></div>
+                        <label className="label label-default text-login">Log in with your email address</label>
+                        <div className="caja-login">
+                            <input className="form-control input-txt"
+                                type="email" placeholder="Email" />
+
+                            <input className="form-control input-txt"
+                                type="password" placeholder="Password" />
+
+
+                        </div>
+                        <button onClick="" type="button"
+                            className="btn btn-login btn-success">Log in</button>
+
+                        <h5>Don´t have an account?<Link to="/Trainning/Sign_Up" id="log"> Sign up</Link> </h5>
+
+                    </div>
                 </div>
-            </div>
+            )
+        }
+        return (
+            <div>{fbContent}</div>
         );
     }
 }
-export default Log_In
+export default Log_In;

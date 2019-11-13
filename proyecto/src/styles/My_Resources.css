@@ -1,0 +1,41 @@
+.description {
+    margin-left: 7%;
+    width: 20%;
+}
+
+.url {
+    margin-top: 30px;
+    margin-left: 7%;
+    width: 20%;
+}
+
+#add-new {
+    margin-top: 5%;
+    margin-left: 7%;
+}
+
+.update {
+    width: 55%;
+    margin-left: 800px;
+    margin-top: -350px;
+    font-size: 18px;
+}
+
+.save-resources {
+    width: 5%;
+    margin-left: 7%;
+    margin-top: 1%;
+    background-color: rgb(10, 94, 219);
+    color: floralwhite;
+}
+
+.table tbody tr th div {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+}
+.form-resources{
+    margin-top: 3%;
+}
