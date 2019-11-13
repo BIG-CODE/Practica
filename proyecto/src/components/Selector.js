@@ -20,7 +20,7 @@ class Selector extends React.Component {
             [event.target.name]: event.target.value,
         });
     };
-    GetTopicId = () => {
+    GetTopicId = async () => {
         let context = this
         fetch("http://localhost:8080/topic", {
             method: 'GET',
@@ -41,7 +41,9 @@ class Selector extends React.Component {
     setId(id_Topics) {
         console.log(id_Topics)
         this.setState({
-            id_Topics: id_Topics
+            topic: {
+                id_Topics : id_Topics
+            }
         });
 
     }
@@ -50,12 +52,12 @@ class Selector extends React.Component {
 
             <select name="id_Topics"
                 value={this.state.topic.id_Topics}
-                onChange={(event) => { this.setId(event.target.value, "id_Topics") }}
+                onChange={(event) => { this.setId(event.target.value) }}
                 id="inputState"
                 className="form-control url color">
                 {
                     this.state.addId.map((item, index) => {
-                        return <option key={index} value={this.state.topic.id_Topics}>{item.id_Topics}</option>
+                        return <option key={index} value={item.topic.id_Topics}>{item.topic.id_Topics}</option>
                     })
                 }
 
