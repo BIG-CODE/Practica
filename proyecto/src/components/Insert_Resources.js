@@ -1,12 +1,10 @@
 import React from 'react';
-import Selector from "./Selector"
 import 'bootstrap/dist/css/bootstrap.min.css';
-class AddResources extends React.Component {
+class Insert_Resources extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-
             description: "",
             url: "",
             topic: {
@@ -18,8 +16,10 @@ class AddResources extends React.Component {
 
         }
     }
-
-    handleClick = async (event) => {
+    componentDidMount() {
+        this.GetTopicId()
+    }
+    handleClick = (event) => {
         const body = {
             description: this.state.description,
             url: this.state.url,
@@ -27,8 +27,8 @@ class AddResources extends React.Component {
                 id_Topics: this.state.id_Topics
             },
         }
-
-        await fetch("http://localhost:8080/resource", {
+        console.log(body)
+        fetch("http://localhost:8080/resource", {
             method: 'POST',
             body: JSON.stringify(body),
             mode: "cors",
@@ -40,6 +40,27 @@ class AddResources extends React.Component {
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
     }
+    GetTopicId = () => {
+        let context = this
+        fetch("http://localhost:8080/topic", {
+            method: 'GET',
+            body: JSON.stringify(),
+            mode: "cors",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+
+        }).then(res => res.json())
+            .then(res => {
+                context.setState({
+                    addId: res
+                })
+            })
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+    }
+
+
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value,
@@ -49,11 +70,19 @@ class AddResources extends React.Component {
     imprimir = () => {
         console.log(this.state)
     }
+    setId(id_Topics) {
+        console.log(id_Topics)
+        this.setState({
+            topic: {
+                id_Topics: id_Topics
+            }
+        });
+    }
     render() {
         return (
             <div className="box-resources">
 
-                <h1 id="add-new">Add new resource</h1> 
+                <h1 id="add-new">Add new resource</h1>
 
                 <form className="form-resources">
                     <input value={this.state.description}
@@ -67,14 +96,25 @@ class AddResources extends React.Component {
                         required type="text" title="please fill out this field"
                         className="form-control url color" type="text " name="url" placeholder="Url"
                     />
-                    <Selector value={this.state.topic.id_Topics}
-                        onChange={(event) => { this.setId(event.target.value, "id_Topics") }} />
+                    <select name="id_Topics"
+                        value={this.state.topic.id_Topics}
+                        onChange={(event) => this.setId(event.target.value)}
+                        onClick={this.handleChange}
+                        id="inputState"
+                        className="form-control url color">
+                        {
+                            this.state.addId.map((item, index) => {
+                                return <option key={index} >{item.id_Topics}</option>
+                            })
+                        }
+
+                    </select>
                 </form>
-                <button onClick={this.imprimir}
+                <button onClick={this.handleClick}
                     type="button" className="save-resources btn btn-primary">Save</button>
-               
+
             </div>
         );
     }
 }
-export default AddResources;
+export default Insert_Resources;

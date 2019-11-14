@@ -15,7 +15,9 @@ class Topic extends React.Component {
     }
     componentDidMount() {
         this.GetTopic()
+        this.handleDelete()
     }
+
     GetTopic = () => {
         let context = this
         fetch("http://localhost:8080/topic", {
@@ -74,10 +76,8 @@ class Topic extends React.Component {
 }
 function Tabla(props) {
     let data = props.data
-
     let contenido = data.map((item, index) => {
         console.log(item)
-
         return (
             <tr key={index}>
                 <th>{item.id_Topics}</th>

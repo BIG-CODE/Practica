@@ -3,10 +3,8 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Home from "../pages/Home_Page";
 import Sign_Up from "../pages/Sign_Up.js";
 import Log_In from "../pages/Log_In.js";
-
 import Topic from "../pages/My_Topics";
 import Resource from "../pages/My_Resources";
-import AddTopic from "./Insert_Topics"
 function App() {
     return (
         <BrowserRouter>

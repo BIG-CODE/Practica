@@ -3,26 +3,30 @@ import '../styles/My_Resources.css';
 import ResourcesSelector from "../components/ResourcesSelector";
 import NavBar from "../components/NavBar"
 import 'bootstrap/dist/css/bootstrap.min.css';
-class Resource extends React.Component {
+class MyResource extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            addResouce: [
-
-            ],
             description: "",
             url: "",
             topic: {
                 id_Topics: 0
             },
+            addResouce: [
+
+            ],
+            addTopics: [
+
+            ]
+
         }
     }
     componentDidMount() {
         this.GetResource()
         this.handleDelete()
     }
-    handleClick = event => {
+    handleClick = (event) => {
         const body = {
             description: this.state.description,
             url: this.state.url,
@@ -49,7 +53,7 @@ class Resource extends React.Component {
             [event.target.name]: event.target.value,
         });
 
-    };
+    }
     GetResource = () => {
         let context = this
         fetch("http://localhost:8080/resource", {
@@ -66,9 +70,9 @@ class Resource extends React.Component {
                 })
             })
             .catch(error => console.error('Error:', error))
-
+            .then(response => console.log('Success:', response));
     }
-    handleUpdate = event => {
+    handleUpdate = async (event) => {
         const body = {
             description: this.state.description,
             url: this.state.url,
@@ -77,7 +81,7 @@ class Resource extends React.Component {
             }
         }
 
-        fetch("http://localhost:8080/resource", {
+        await fetch("http://localhost:8080/resource", {
             method: 'PUT',
             body: JSON.stringify(body),
             mode: "cors",
@@ -90,7 +94,7 @@ class Resource extends React.Component {
             .then(response => console.log('Success:', response));
 
     }
-    handleDelete = (id) => {
+    handleDelete = async (id) => {
         const body = {
             description: this.state.description,
             url: this.state.url,
@@ -99,7 +103,7 @@ class Resource extends React.Component {
             }
         }
 
-        fetch("http://localhost:8080/resource/"+id, {
+        await fetch("http://localhost:8080/resource/" + id, {
             method: 'DELETE',
             mode: "cors",
             headers: {
@@ -109,6 +113,15 @@ class Resource extends React.Component {
         }).then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
+    }
+    setId(id_Topics) {
+        console.log(id_Topics)
+        this.setState({
+            topic: {
+                id_Topics: id_Topics
+            }
+        });
+
     }
 
     render() {
@@ -146,7 +159,7 @@ function Tabla(props) {
                 <th>
                     <div>
                         <button className="btn btn-info">Edit</button>
-                        <button onClick={props.handleDelete(item.id)} className="btn btn-danger">Delete</button>
+                        <button onClick={() => props.handleDelete(item.id)} className="btn btn-danger">Delete</button>
                     </div>
                 </th>
             </tr>
@@ -155,5 +168,4 @@ function Tabla(props) {
 
     return contenido;
 }
-
-export default Resource
+export default MyResource
