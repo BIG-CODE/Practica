@@ -67,7 +67,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-             <NavBarSesion />
+                <NavBarSesion />
                 <div className="container">
                     <h1 id="top-ten"> Top ten topics </h1>
                     <table className="table table-striped table-hover">
@@ -93,6 +93,7 @@ function TablaHome(props) {
         return (
             <tr key={index}>
                 <th>{item.name}</th>
+               
             </tr>
         );
     })

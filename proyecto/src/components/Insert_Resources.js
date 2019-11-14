@@ -24,11 +24,11 @@ class Insert_Resources extends React.Component {
             description: this.state.description,
             url: this.state.url,
             topic: {
-                id_Topics: this.state.id_Topics
+                id_Topics: this.state.topic.id_Topics
             },
         }
         console.log(body)
-        fetch("http://localhost:8080/resource", {
+      fetch("http://localhost:8080/resource", {
             method: 'POST',
             body: JSON.stringify(body),
             mode: "cors",
@@ -99,7 +99,7 @@ class Insert_Resources extends React.Component {
                     <select name="id_Topics"
                         value={this.state.topic.id_Topics}
                         onChange={(event) => this.setId(event.target.value)}
-                        onClick={this.handleChange}
+                       
                         id="inputState"
                         className="form-control url color">
                         {

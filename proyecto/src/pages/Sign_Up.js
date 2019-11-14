@@ -21,8 +21,8 @@ class Sign_Up extends React.Component {
             password: this.state.password,
             name: this.state.name
         }
-
-        fetch("http://localhost:8080//users", {
+        console.log(body)
+       fetch("http://localhost:8080//users", {
             method: 'POST',
             body: JSON.stringify(body),
             mode: "cors",
@@ -40,7 +40,7 @@ class Sign_Up extends React.Component {
             [event.target.name]: event.target.value,
         });
 
-    };
+    }
 
     render() {
         return (
@@ -75,14 +75,10 @@ class Sign_Up extends React.Component {
                         type="button"
                         className="btn boton btn-success"
                         id="up">Sign up</button>
-
-                    <h5
-                        >Already have an account?
-                     <Link to="/Trainning/Log_In" id="sign"> Log in</Link>
-                    </h5>
+                    <h5 className="footer">Already have an account? <Link to="/Trainning/Log_In" id="sign"> Log in</Link></h5>
                 </div>
             </div>
         );
     }
 }
-export default Sign_Up
+export default Sign_Up;
