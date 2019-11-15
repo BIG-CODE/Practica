@@ -22,12 +22,13 @@ class Sign_Up extends React.Component {
             name: this.state.name
         }
         console.log(body)
-       fetch("http://localhost:8080//users", {
+       fetch("http://localhost:8080/users", {
             method: 'POST',
             body: JSON.stringify(body),
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcG9ydGEiLCJpYXQiOjE1NzM4NTQ0ODYsImV4cCI6MTU3Mzg1NTA4Nn0.-NnUvor96Wzac-KcRnZnUZQXW-x2Z6fgbPiw99zSFkNF-ot6RwRwAiSBVvMgobx5_lKvzTZsAoHP5x-oJyWx1g'
             }
 
         }).then(res => res.json())

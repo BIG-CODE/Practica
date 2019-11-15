@@ -2,6 +2,9 @@ import React from 'react';
 import '../styles/Home_Page.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBarSesion from "../components/NavBarSesion"
+
+
+
 class Home extends React.Component {
 
     constructor(props) {
@@ -33,9 +36,14 @@ class Home extends React.Component {
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcG9ydGEiLCJpYXQiOjE1NzM4NTc4MTMsImV4cCI6MTU3Mzg1ODQxM30.5cFyFW-D_TAFW7Rhl7ze81hG_ODSdUlxOZvv0wKuOcMa5tmWX33OKn5LTgLI9ejX6suxwSiID5V274aIZVUGOQ'
+           
             }
-
-        }).then(res => res.json())
+          
+        }).then(res =>{
+            console.log(res)
+           return res.json()
+        })
             .then(res => {
                 context.setState({
                     addResouce: res
@@ -52,6 +60,8 @@ class Home extends React.Component {
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcG9ydGEiLCJpYXQiOjE1NzM4NTc4MTMsImV4cCI6MTU3Mzg1ODQxM30.5cFyFW-D_TAFW7Rhl7ze81hG_ODSdUlxOZvv0wKuOcMa5tmWX33OKn5LTgLI9ejX6suxwSiID5V274aIZVUGOQ'
+           
             }
 
         }).then(res => res.json())
