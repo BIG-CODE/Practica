@@ -9,11 +9,11 @@ function App() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path={'/Trainning/Top'} component={Home} />
-                <Route exact path={'/Trainning/Sign_Up'} component={Sign_Up} />
-                <Route exact path={'/Trainning/Log_In'} component={Log_In} />
-                <Route exact path={'/Trainning/My_Topics'} component={Topic} />
-                <Route exact path={'/Trainning/My_Resources'} component={Resource} />
+                <Route exact path={'/Training/Top'} component={Home} />
+                <Route exact path={'/Training/Sign_Up'} component={Sign_Up} />
+                <Route exact path={'/Training/Log_In'} component={Log_In} />
+                <Route exact path={'/Training/My_Topics'} component={Topic} />
+                <Route exact path={'/Training/My_Resources'} component={Resource} />
             </Switch>
         </BrowserRouter>
     );

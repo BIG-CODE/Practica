@@ -34,6 +34,8 @@ class Insert_Resources extends React.Component {
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
+           
             }
 
         }).then(res => res.json())
@@ -48,6 +50,8 @@ class Insert_Resources extends React.Component {
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
+           
             }
 
         }).then(res => res.json())

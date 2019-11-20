@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import SelectorId from "./SelectorId";
 import ResourcesSelector from "./ResourcesSelector";
 class EditResources extends React.Component {
     constructor(props) {
@@ -66,7 +64,7 @@ class EditResources extends React.Component {
                 </form>
                 <button onClick={this.handleClick}
                     type="button" className="btn btn-primary save-resources">Save</button>
-               
+
             </div>
         );
     }

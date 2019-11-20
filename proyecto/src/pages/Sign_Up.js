@@ -12,28 +12,44 @@ class Sign_Up extends React.Component {
             password: "",
             email: "",
             addUser: [
-            ]
+            ],
+            token: []
         }
     }
-    handleClick = event => {
+    handleClick = async (event) => {
         const body = {
             email: this.state.email,
             password: this.state.password,
             name: this.state.name
         }
+        const token = {
+            password: this.state.password,
+            email: this.state.email
+        }
+        console.log(token)
         console.log(body)
-       fetch("http://localhost:8080/users", {
+
+        await fetch("http://localhost:8080/users", {
             method: 'POST',
             body: JSON.stringify(body),
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcG9ydGEiLCJpYXQiOjE1NzM4NTQ0ODYsImV4cCI6MTU3Mzg1NTA4Nn0.-NnUvor96Wzac-KcRnZnUZQXW-x2Z6fgbPiw99zSFkNF-ot6RwRwAiSBVvMgobx5_lKvzTZsAoHP5x-oJyWx1g'
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
             }
 
         }).then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
+
+        await fetch("http://localhost:8080/login", {
+            method: 'POST',
+            body: JSON.stringify(token),
+            mode: "cors",
+        }).then(res => {
+            this.setToken(res.token)
+            return Promise.resolve(res)
+        })
 
     }
     handleChange = event => {
@@ -48,7 +64,7 @@ class Sign_Up extends React.Component {
             <div className="menu-sign">
                 <NavBarSesion />
                 <div className="menu-body">
-                    <button onClick="" className="btn  face btn-primary btn-lg active">Sign in with Facebook</button>
+                    <button className="btn  face btn-primary btn-lg active">Sign in with Facebook</button>
                     <div id="barra"></div>
                     <label className="label-default" id="texto">Sign up with your email address</label>
                     <form className="caja-sing">
@@ -76,7 +92,7 @@ class Sign_Up extends React.Component {
                         type="button"
                         className="btn boton btn-success"
                         id="up">Sign up</button>
-                    <h5 className="footer">Already have an account? <Link to="/Trainning/Log_In" id="sign"> Log in</Link></h5>
+                    <h5 className="footer">Already have an account? <Link to="/Training/Log_In" id="sign"> Log in</Link></h5>
                 </div>
             </div>
         );

@@ -36,7 +36,7 @@ class Home extends React.Component {
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcG9ydGEiLCJpYXQiOjE1NzM4NTc4MTMsImV4cCI6MTU3Mzg1ODQxM30.5cFyFW-D_TAFW7Rhl7ze81hG_ODSdUlxOZvv0wKuOcMa5tmWX33OKn5LTgLI9ejX6suxwSiID5V274aIZVUGOQ'
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
            
             }
           
@@ -60,7 +60,7 @@ class Home extends React.Component {
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcG9ydGEiLCJpYXQiOjE1NzM4NTc4MTMsImV4cCI6MTU3Mzg1ODQxM30.5cFyFW-D_TAFW7Rhl7ze81hG_ODSdUlxOZvv0wKuOcMa5tmWX33OKn5LTgLI9ejX6suxwSiID5V274aIZVUGOQ'
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
            
             }
 

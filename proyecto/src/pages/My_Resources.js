@@ -41,6 +41,8 @@ class MyResource extends React.Component {
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
+
             }
 
         }).then(res => res.json())
@@ -54,13 +56,15 @@ class MyResource extends React.Component {
         });
 
     }
-    GetResource = () => {
+    GetResource = async () => {
         let context = this
-        fetch("http://localhost:8080/resource", {
+        await fetch("http://localhost:8080/resource", {
             method: 'GET',
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
+
             }
 
         }).then(res => res.json())
@@ -95,25 +99,21 @@ class MyResource extends React.Component {
 
     }
     handleDelete = async (id) => {
-        const body = {
-            description: this.state.description,
-            url: this.state.url,
-            topic: {
-                id_Topics: this.state.id_Topics
-            }
-        }
+        const requestInfo = {
 
-        await fetch("http://localhost:8080/resource/" + id, {
             method: 'DELETE',
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
             }
-
-        }).then(res => res.json())
+        }
+        await fetch("http://localhost:8080/resource/" + id, requestInfo)
+            .then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
     }
+
     setId(id_Topics) {
         console.log(id_Topics)
         this.setState({

@@ -11,18 +11,18 @@ class NavBar extends React.Component {
             <div><nav className="navbar navbar-expand-lg navbar-light bg-light form-control">
 
                 <ul className="navbar-nav training mr-auto">
-                    <Link className="nav-link " to="/Trainning/Top">Avantica training</Link>
+                    <Link className="nav-link " to="/Training/Top">Avantica training</Link>
                 </ul>
                 <ul className="navbar-nav topic mr-auto">
-                    <Link className="nav-link " to="/Trainning/My_Topics">Topic</Link>
+                    <Link className="nav-link " to="/Training/My_Topics">Topic</Link>
 
                 </ul>
                 <ul className="navbar-nav resources mr-auto">
-                    <Link className="nav-link " to="/Trainning/My_Resources">Resources</Link>
+                    <Link className="nav-link " to="/Training/My_Resources">Resources</Link>
 
                 </ul>
                 <ul className="navbar-nav signup  mr-auto">
-                    <Link className="nav-link " to="/Trainning/Sign_Up">Log Out</Link>
+                    <Link className="nav-link " to="/Training/Sign_Up">Log Out</Link>
                 </ul>
             </nav>
 
