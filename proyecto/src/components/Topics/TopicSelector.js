@@ -4,9 +4,9 @@ import EditTopic from './Edit_Topics';
 
 function TopicSelector(props) {
 
-    if (props.selectorState == true) {
+    if (props.selectorState === true) {
 
-        return <EditTopic name={props.name} GetTopic={props.GetTopic} />
+        return <EditTopic GetTopic={props.GetTopic} id_Topics={props.id_Topics} name={props.name} />
 
     }
     return (

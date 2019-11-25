@@ -8,10 +8,12 @@ class MyResource extends React.Component {
         super(props)
 
         this.state = {
-            addResouce: [
-            ],
-            addTopics: [
-            ]
+            description: "",
+            url: "",
+            topic: { id_Topics: 0 },
+            addResouce: [],
+            addTopics: [],
+            actionAdd: false
         }
     }
 
@@ -22,62 +24,45 @@ class MyResource extends React.Component {
     GetResource = async () => {
         let context = this
 
-        const requestInfo = {
-            method: 'GET',
-            mode: "cors",
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }
+        const requestInfo = { method: 'GET', mode: "cors", headers: { 'Content-Type': 'application/json', } }
 
-        await fetch("http://localhost:8080/resource", requestInfo)
+        await fetch(Url + "resource", requestInfo)
             .then(res => res.json())
             .then(res => { context.setState({ addResouce: res }) })
             .catch(error => console.error('Error:', error))
     }
 
-    handleUpdate = async (event) => {
-        let token = localStorage.getItem('Authorization')
+    resourceUpdate = async () => {
         const body = { description: this.description, url: this.url, topic: { id_Topics: this.id_Topics } }
-        const requestInfo = {
-            method: 'PUT',
-            body: JSON.stringify(body),
-            mode: "cors",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token
-            }
-        }
-        await fetch("http://localhost:8080/resource", requestInfo)
+
+        const requestInfo = { method: 'PUT', body: JSON.stringify(body), mode: "cors", headers: { 'Content-Type': 'application/json', "Authorization": token } }
+
+        await fetch(Url, requestInfo)
             .then(res => res.json())
             .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
         this.GetResource()
     }
 
-    handleDelete = async (id) => {
-        let token = localStorage.getItem('Authorization')
-        const requestInfo = {
-            method: 'DELETE',
-            mode: "cors",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token
+    resourceDelete = async (id) => {
+        const requestInfo = { method: 'DELETE', mode: "cors", headers: { 'Content-Type': 'application/json', "Authorization": token } }
 
-            }
-        }
-        await fetch("http://localhost:8080/resource/" + id, requestInfo)
+        await fetch(Url + "resource/" + id, requestInfo)
             .then(res => res.json())
             .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
         this.GetResource()
     }
-
+    updateResource = (id, description, url, id_Topics) => {
+        console.log(id, description, url, id_Topics)
+        /* this.setState({
+             actionAdd: true,
+             id: id, description: description, url: url, topic:{id_Topics: id_Topics}
+         })*/
+    }
     render() {
         return (
             <div className="box-resources">
                 <NavBar />
-                <ResourcesSelector GetResource={this.GetResource} selectorState={"add"} />
+                <ResourcesSelector GetResource={this.GetResource} selectorState={this.state.actionAdd} />
                 <table className="table update text-center">
                     <thead className="thead-dark">
                         <tr>
@@ -89,32 +74,29 @@ class MyResource extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <Tabla data={this.state.addResouce} handleDelete={this.handleDelete} />
+                        {this.state.addResouce.map((item, index) => {
+                            console.log(item)
+                            return (
+                                <tr key={index}>
+                                    <th>{item.id}</th>
+                                    <th>{item.description}</th>
+                                    <th>{item.url}</th>
+                                    <th>{item.topic.id_Topics}- {item.topic.name}</th>
+                                    <th>
+                                        <div>
+                                            <button onClick={() => this.updateResource(item.id, item.description, item.url, item.topic.id_Topics)} className="btn btn-info">Edit</button>
+                                            <button onClick={() => this.resourceDelete(item.id)} className="btn btn-danger">Delete</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
             </div>
         );
     }
 }
-function Tabla(props) {
-    let data = props.data
-    let contenido = data.map((item, index) => {
-        return (
-            <tr key={index}>
-                <th>{item.id}</th>
-                <th>{item.description}</th>
-                <th>{item.url}</th>
-                <th>{item.topic.id_Topics}- {item.topic.name}</th>
-                <th>
-                    <div>
-                        <button className="btn btn-info">Edit</button>
-                        <button onClick={() => props.handleDelete(item.id)} className="btn btn-danger">Delete</button>
-                    </div>
-                </th>
-            </tr>
-        );
-    })
-
-    return contenido;
-}
+const token = localStorage.getItem('Authorization')
+const Url = "http://localhost:8080/"
 export default MyResource

@@ -6,11 +6,11 @@ class Topic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            id_Topics: 0,
             name: "",
             addTopics: [
             ],
             actionAdd: false,
-            cachedSomeProp: null
         }
     }
 
@@ -19,16 +19,9 @@ class Topic extends React.Component {
     }
 
     GetTopic = async () => {
-        let token = localStorage.getItem('Authorization')
         let context = this
-        const requestInfo = {
-            method: 'GET',
-            mode: "cors",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token
-            }
-        }
+        const requestInfo = { method: 'GET', mode: "cors", headers: { 'Content-Type': 'application/json', 'Authorization': token } }
+
         await fetch("http://localhost:8080/topic", requestInfo)
             .then(res => res.json())
             .then(res => { context.setState({ addTopics: res }) })
@@ -36,37 +29,23 @@ class Topic extends React.Component {
     }
 
     deleteTopic = async (id) => {
-        let token = localStorage.getItem('Authorization')
-        const requestInfo = {
-            method: 'DELETE',
-            mode: "cors",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token
-            }
-        }
+        const requestInfo = { method: 'DELETE', mode: "cors", headers: { 'Content-Type': 'application/json', 'Authorization': token } }
 
         await fetch("http://localhost:8080/topic/" + id, requestInfo)
             .then(res => res.json())
             .catch(error => console.error('Error:', error))
-            .then(response => console.error('ok:', response));
         this.GetTopic()
     }
 
-    updateTopic = (id_Topics, name) => {
-        localStorage.setItem("topic", id_Topics)
-        console.log(this.state.id_Topics, this.state.name)
-        console.log(id_Topics, name)
-        this.setState({
-            actionAdd: true,
-            name: name
-        })
+    updateTopic = (id_Topics, n) => {
+        console.log(n)
+        this.setState({ actionAdd: true, id_Topics: id_Topics, name: n })
     }
     render() {
         return (
             <div className="top">
                 <NavBar />
-                <TopicSelector GetTopic={this.GetTopic} selectorState={this.state.actionAdd} name={this.state.name} />
+                <TopicSelector GetTopic={this.GetTopic} selectorState={this.state.actionAdd} name={this.state.name} id_Topics={this.state.id_Topics} />
                 <table className="table updates text-center">
                     <thead className="thead-dark">
                         <tr>
@@ -77,7 +56,7 @@ class Topic extends React.Component {
                     </thead>
                     <tbody>
                         {this.state.addTopics.map((item, index) => {
-                            console.log(item)
+                            console.log(index, item)
                             return (
                                 <tr key={index}>
                                     <th>{item.id_Topics}</th>
@@ -93,10 +72,9 @@ class Topic extends React.Component {
                         })}
                     </tbody>
                 </table>
-
             </div>
         );
     }
 }
-
+const token = localStorage.getItem('Authorization')
 export default Topic

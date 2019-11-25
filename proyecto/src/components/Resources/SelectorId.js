@@ -4,12 +4,10 @@ import EditResources from './Edit_Resources';
 
 function SelectorId(props) {
 
-    if (props.selectorState === "edit") {
+    if (props.selectorState === true) {
 
-        return <EditResources />
+        return <EditResources GetTopicId={props.GetTopicId} />
     }
-    return (
-        <Selector GetTopicId={props.GetTopicId()}> </Selector>
-    );
+    return (  <Selector GetTopicId={props.GetTopicId}/>)
 }
 export default SelectorId;
