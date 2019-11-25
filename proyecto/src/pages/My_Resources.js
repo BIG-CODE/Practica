@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/My_Resources.css';
-import ResourcesSelector from "../components/ResourcesSelector";
+import ResourcesSelector from "../components/Resources/ResourcesSelector";
 import NavBar from "../components/NavBar"
 import 'bootstrap/dist/css/bootstrap.min.css';
 class MyResource extends React.Component {
@@ -8,120 +8,69 @@ class MyResource extends React.Component {
         super(props)
 
         this.state = {
-            description: "",
-            url: "",
-            topic: {
-                id_Topics: 0
-            },
             addResouce: [
-
             ],
             addTopics: [
-
             ]
-
         }
     }
+
     componentDidMount() {
         this.GetResource()
-        this.handleDelete()
     }
-    handleClick = (event) => {
-        const body = {
-            description: this.state.description,
-            url: this.state.url,
-            topic: {
-                id_topics: this.state.id_topics
-            }
-        }
 
-        fetch("http://localhost:8080/resource", {
-            method: 'POST',
-            body: JSON.stringify(body),
-            mode: "cors",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
-
-            }
-
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
-
-    }
-    handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value,
-        });
-
-    }
     GetResource = async () => {
         let context = this
-        await fetch("http://localhost:8080/resource", {
+
+        const requestInfo = {
             method: 'GET',
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
-
-            }
-
-        }).then(res => res.json())
-            .then(res => {
-                context.setState({
-                    addResouce: res
-                })
-            })
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
-    }
-    handleUpdate = async (event) => {
-        const body = {
-            description: this.state.description,
-            url: this.state.url,
-            topic: {
-                id_Topics: this.state.id_Topics
             }
         }
 
-        await fetch("http://localhost:8080/resource", {
+        await fetch("http://localhost:8080/resource", requestInfo)
+            .then(res => res.json())
+            .then(res => { context.setState({ addResouce: res }) })
+            .catch(error => console.error('Error:', error))
+    }
+
+    handleUpdate = async (event) => {
+        let token = localStorage.getItem('Authorization')
+        const body = { description: this.description, url: this.url, topic: { id_Topics: this.id_Topics } }
+        const requestInfo = {
             method: 'PUT',
             body: JSON.stringify(body),
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': token
             }
-
-        }).then(res => res.json())
+        }
+        await fetch("http://localhost:8080/resource", requestInfo)
+            .then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
-
+        this.GetResource()
     }
-    handleDelete = async (id) => {
-        const requestInfo = {
 
+    handleDelete = async (id) => {
+        let token = localStorage.getItem('Authorization')
+        const requestInfo = {
             method: 'DELETE',
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
+                'Authorization': token
+
             }
         }
         await fetch("http://localhost:8080/resource/" + id, requestInfo)
             .then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
-    }
-
-    setId(id_Topics) {
-        console.log(id_Topics)
-        this.setState({
-            topic: {
-                id_Topics: id_Topics
-            }
-        });
-
+        this.GetResource()
     }
 
     render() {
@@ -129,7 +78,7 @@ class MyResource extends React.Component {
             <div className="box-resources">
                 <NavBar />
                 <ResourcesSelector GetResource={this.GetResource} selectorState={"add"} />
-                <table className="table update">
+                <table className="table update text-center">
                     <thead className="thead-dark">
                         <tr>
                             <th scope="col">id</th>
@@ -155,7 +104,7 @@ function Tabla(props) {
                 <th>{item.id}</th>
                 <th>{item.description}</th>
                 <th>{item.url}</th>
-                <th>{item.topic.id_Topics}</th>
+                <th>{item.topic.id_Topics}- {item.topic.name}</th>
                 <th>
                     <div>
                         <button className="btn btn-info">Edit</button>

@@ -1,65 +1,73 @@
 import React from 'react';
 import '../styles/Insert_Topics.css';
-import TopicSelector from "../components/TopicSelector"
+import TopicSelector from "../components/Topics/TopicSelector"
 import NavBar from "../components/NavBar"
 class Topic extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = {
+            name: "",
             addTopics: [
-            ]
+            ],
+            actionAdd: false,
+            cachedSomeProp: null
         }
-
     }
+
     componentDidMount() {
         this.GetTopic()
-        this.handleDelete()
     }
 
-    GetTopic = () => {
+    GetTopic = async () => {
+        let token = localStorage.getItem('Authorization')
         let context = this
-        fetch("http://localhost:8080/topic", {
+        const requestInfo = {
             method: 'GET',
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
+                'Authorization': token
             }
-
-        }).then(res => res.json())
-            .then(res => {
-                context.setState({
-                    addTopics: res
-                })
-            })
+        }
+        await fetch("http://localhost:8080/topic", requestInfo)
+            .then(res => res.json())
+            .then(res => { context.setState({ addTopics: res }) })
             .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
-
     }
 
-    handleDelete = async(id) => {
+    deleteTopic = async (id) => {
+        let token = localStorage.getItem('Authorization')
         const requestInfo = {
             method: 'DELETE',
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSb3luZXIiLCJpYXQiOjE1NzQxODUzODQsImV4cCI6MTU3NTA0OTM4NH0.wle2URKZxaOjnmdrCKgRNXgdQvG1FtGg7nJ_2n3chbTTPg8-3TpOkdLG9AvmaCYojBjgkG_HNYE9t64Vmxo7Vg'
+                'Authorization': token
             }
         }
 
-       await fetch("http://localhost:8080/topic/" + id, requestInfo)
-        .then(res => res.json())
+        await fetch("http://localhost:8080/topic/" + id, requestInfo)
+            .then(res => res.json())
             .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
+            .then(response => console.error('ok:', response));
+        this.GetTopic()
     }
 
+    updateTopic = (id_Topics, name) => {
+        localStorage.setItem("topic", id_Topics)
+        console.log(this.state.id_Topics, this.state.name)
+        console.log(id_Topics, name)
+        this.setState({
+            actionAdd: true,
+            name: name
+        })
+    }
     render() {
         return (
             <div className="top">
                 <NavBar />
-                <TopicSelector GetTopic={this.GetTopic} selectorState={"add"} />
-                <table className="table updates">
+                <TopicSelector GetTopic={this.GetTopic} selectorState={this.state.actionAdd} name={this.state.name} />
+                <table className="table updates text-center">
                     <thead className="thead-dark">
                         <tr>
                             <th scope="col">id</th>
@@ -68,7 +76,21 @@ class Topic extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <Tabla data={this.state.addTopics} handleDelete={this.handleDelete} />
+                        {this.state.addTopics.map((item, index) => {
+                            console.log(item)
+                            return (
+                                <tr key={index}>
+                                    <th>{item.id_Topics}</th>
+                                    <th>{item.name}</th>
+                                    <th>
+                                        <div>
+                                            <button onClick={() => this.updateTopic(item.id_Topics, item.name)} className="btn btn-info edit">Edit</button>
+                                            <button onClick={() => this.deleteTopic(item.id_Topics)} className="btn btn-danger delete">Delete</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
 
@@ -76,24 +98,5 @@ class Topic extends React.Component {
         );
     }
 }
-function Tabla(props) {
-    let data = props.data
-    let contenido = data.map((item, index) => {
-        console.log(item)
-        return (
-            <tr key={index}>
-                <th>{item.id_Topics}</th>
-                <th>{item.name}</th>
-                <th>
-                    <div>
-                        <button className="btn btn-info edit">Edit</button>
-                        <button onClick={() => props.handleDelete(item.id_Topics)} className="btn btn-danger delete">Delete</button>
-                    </div>
-                </th>
-            </tr>
-        );
-    })
-    console.log(props.data)
-    return contenido;
-}
+
 export default Topic

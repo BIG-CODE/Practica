@@ -4,18 +4,15 @@ import EditTopic from './Edit_Topics';
 
 function TopicSelector(props) {
 
-    if (props.selectorState === "edit") {
+    if (props.selectorState == true) {
 
-        return <EditTopic />
+        return <EditTopic name={props.name} GetTopic={props.GetTopic} />
+
     }
     return (
-        <AddTopic GetTopic={props.GetTopic}>
-
-
+        <AddTopic GetTopic={props.GetTopic}  >
         </AddTopic>
 
     );
-
-
 }
 export default TopicSelector;

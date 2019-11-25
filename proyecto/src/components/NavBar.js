@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import "../styles/NavBar.css"
 
 class NavBar extends React.Component {
-    state = {
-
-    }
     render() {
         return (
             <div><nav className="navbar navbar-expand-lg navbar-light bg-light form-control">
@@ -27,7 +24,6 @@ class NavBar extends React.Component {
             </nav>
 
             </div>
-
 
         );
     }

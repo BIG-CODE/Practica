@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class NavBarSesion extends React.Component {
-    state = {
-
-    }
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light form-control">
