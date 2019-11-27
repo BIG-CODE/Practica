@@ -40,40 +40,40 @@
     width: 6%;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1366px) {
     .avantica {
-        font-size: 17px;
+        font-size: 20px;
     }
     .log-in {
-        font-size: 17px;
-        width: 11%;
-        margin-left: 36%;
+        font-size: 20px;
+        width: 6%;
+        margin-left: 74%;
     }
     .sign-up {
-        font-size: 17px;
-        width: 15%;
+        font-size: 20px;
+        width: 7%;
     }
     .copy {
         background-color: blueviolet;
     }
     .training {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .signup {
-        font-size: 18px;
-        width: 10%;
-        margin-left: 50%;
+        font-size: 20px;
+        width: 8%;
+        margin-left: 65%;
     }
     
     .topic {
         font-size: 18px;
-        width: 7%;
+        width: 6%;
         margin-left: 1%;
     }
     
     .resources {
         font-size: 18px;
-        width: 6%;
+        width: 7%;
     }
 }
