@@ -1,0 +1,117 @@
+#add-topic {
+    margin-top: 8%;
+    margin-left: 8%;
+}
+
+#save-btn {
+    width: 5%;
+    margin-top: 1%;
+    margin-left: 8%;
+    background-color: rgb(10, 94, 219);
+    color: floralwhite;
+}
+
+#entrada {
+    margin-left: 150px;
+}
+
+#name {
+    margin-left: 8%;
+}
+
+.control {
+    margin-top: 1%;
+    margin-left: 8%;
+    width: 20%;
+    font-size: 20px;
+}
+
+.adder {
+    width: 17%;
+    height: 40px;
+    margin-left: 120px;
+    margin-top: 10px;
+}
+
+#editarTopic {
+    display: grid;
+    grid-template-columns: 300px;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+.color:valid {
+    border-left: 5px solid #42A948;
+}
+
+.color:invalid {
+    border-left: 5px solid #AB4846;
+}
+
+
+.updates {
+    width: 40%;
+    height: 40%;
+    margin-left: 55%;
+    margin-top: -260px;
+    font-size: 15px;
+}
+.btn-info {
+    font-size: 14px;
+}
+.btn-danger {
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 1000px) {
+    #add-topic {
+        margin-top: 8%;
+        margin-left: 8%;
+        font-size: 30px;
+    }
+    #save-btn {
+        width: 7%;
+        margin-top: 1%;
+        margin-left: 8%;
+        background-color: rgb(10, 94, 219);
+        color: floralwhite;
+    }
+    #entrada {
+        margin-left: 150px;
+    }
+    #name {
+        margin-left: 8%;
+        font-size: 14px;
+    }
+    .control {
+        margin-top: 1%;
+        margin-left: 8%;
+        width: 25%;
+        font-size: 14px;
+    }
+    .adder {
+        width: 17%;
+        height: 40px;
+        margin-left: 120px;
+        margin-top: 10px;
+    }
+    #editarTopic {
+        display: grid;
+        grid-template-columns: 300px;
+        margin-top: 50px;
+        margin-left: 150px;
+    }
+    .updates {
+        width: 50%;
+        height: 40%;
+        margin-left: 45%;
+        margin-top: -150px;
+        font-size: 14px;
+    }
+    .btn-info {
+        font-size: 14px;
+    }
+    .btn-danger {
+        font-size: 14px;
+    }
+}

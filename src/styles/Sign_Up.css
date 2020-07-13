@@ -1,0 +1,41 @@
+
+.menu-body{
+    margin-top: 5%;
+    display: grid;
+    justify-content: center;
+
+}
+.caja-sing{
+    width: 120%;
+    margin-top: -13%;
+
+}
+.txt-s{
+    width: 100%;
+    margin-top: 10%;
+    font-size: 20px;
+}
+.boton{
+    margin-top: 5%;
+    width: 25%;
+}
+.face{
+    width: 120%;
+  
+}
+.footer-signup{
+    font-size: 20px;
+}
+#texto{
+    line-height: 35px;
+    margin-top: 10%;
+    font-size: 24px;
+  
+}
+#barra{
+    width: 120%;
+    margin-top: 10%;
+    background-color: rgb(228, 228, 228);
+    height: 1px;
+}
+  
